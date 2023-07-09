@@ -6,7 +6,7 @@ public class Platform : MonoBehaviour
 {   
     public float jumpForce = 10f;
 
-    
+    private AudioSource audioSource;
 
     private void OnCollisionEnter2D(Collision2D collision) {
 
@@ -23,6 +23,18 @@ public class Platform : MonoBehaviour
 
         }
         
+    }
+
+    private void OnCollisionExit2D(Collision2D other) {
+
+
+
+        // Get the audio source component of the other object
+        audioSource = other.gameObject.GetComponent<AudioSource>();
+
+        // Play the audio clip one shot
+        audioSource.PlayOneShot(audioSource.clip);
+
     }
 
     // Start is called before the first frame update

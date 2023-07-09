@@ -14,7 +14,7 @@ public class PlatformSpawnManager : MonoBehaviour
     private GameObject player;
     private List<Transform> platforms = new List<Transform>();
 
-    void Start()
+    void Awake()
     {
         // Get player from the GameManager script
         player = GetComponent<GameManager>().player;
